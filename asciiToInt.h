@@ -1,0 +1,1 @@
+int asciiToInt(char* num);
