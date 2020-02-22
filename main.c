@@ -4,7 +4,7 @@
 
 
 uint64_t __pow__(uint64_t n, uint64_t m){
-    if(m <= 0) return 1;
+    if(m == 0) return 1;
 
     uint64_t w = 0;
     uint64_t base = n;
@@ -22,8 +22,13 @@ uint64_t __pow__(uint64_t n, uint64_t m){
 
 int main(int argc, char const *argv[])
 {
-    if(argc < 2 || argc > 3){
-        printf("Invalid Args -- Format: ./pow base exponent\n");
+    if(argc != 3){
+        printf("Invalid Args -- Format: ./pow Base Exponent\n");
+        return 1;
+    }
+
+    if(argv[1][0] == '-' || argv[2][0] == '-'){
+        printf("Base & Exponent must both be positive\n");
         return 1;
     }
 
